@@ -30,6 +30,7 @@ public class UsuariosController {
     	model.addAttribute("usuarios", lista);
 		return "usuarios/listUsuarios";
 	}
+    
     @GetMapping("/edit/{id}")
     public String editar(@PathVariable("id") int idUsuario, Model model) {		
 		Usuario usuario = serviceUsuarios.buscarPorId(idUsuario);			

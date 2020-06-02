@@ -87,19 +87,33 @@ public class HomeController {
 	 */
 	@PostMapping("/signup")
 	public String guardarRegistro(Usuario usuario, RedirectAttributes attributes) {
+		Perfil perfil = new Perfil();
 		// Recuperamos la contraseña en texto plano (Sin cifrar)
 		String pwdPlano = usuario.getPassword();
 		// Encriptamos la contraseña BCryptPasswordEncoder
 		String pwdEncriptado = passwordEncoder.encode(pwdPlano); 
 		// Hacemos un set al atributo password (ya viene encriptado)...
 		usuario.setPassword(pwdEncriptado);	
-		usuario.setEstatus(1); // Activado por defecto 
+		
+			usuario.setEstatus(1);
+		
+		 // Activado por defecto 
 		usuario.setFechaRegistro(new Date()); // Fecha de Registro, la fecha actual del servidor
 		
 		// Creamos el Perfil que le asignaremos al usuario nuevo
-		Perfil perfil = new Perfil();
-		perfil.setId(3); // Perfil USUARIO por defecto
+		if(usuario.getId().equals(9)) {
+			perfil.setId(2);
+		}
+		else if(usuario.getId().equals(11))
+		{
+			perfil.setId(1);
+		}
+		else
+		{
+			perfil.setId(3); // Perfil USUARIO por defecto
+		}
 		usuario.agregar(perfil);
+		
 		
 		/**
 		 * Guardamos el usuario en la base de datos. El Perfil se guarda automaticamente
