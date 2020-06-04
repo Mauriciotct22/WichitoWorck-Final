@@ -102,10 +102,10 @@ public class HomeController {
 		
 		// Creamos el Perfil que le asignaremos al usuario nuevo
 		//damos permisos
-		if(usuario.getNombre.equals("Administrador")) {
+		if(usuario.getNombre().equals("Administrador")) {
 			perfil.setId(2);
 		}
-		else if(usuario.getNombre.equals("Supervisor"))
+		else if(usuario.getNombre().equals("Supervisor"))
 		{
 			perfil.setId(1);
 		}
