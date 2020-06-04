@@ -101,10 +101,10 @@ public class HomeController {
 		usuario.setFechaRegistro(new Date()); // Fecha de Registro, la fecha actual del servidor
 		
 		// Creamos el Perfil que le asignaremos al usuario nuevo
-		if(usuario.getId().equals(9)) {
+		if(usuario.getNombre.equals("Administrador")) {
 			perfil.setId(2);
 		}
-		else if(usuario.getId().equals(11))
+		else if(usuario.getNombre.equals("Supervisor"))
 		{
 			perfil.setId(1);
 		}
